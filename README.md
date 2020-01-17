@@ -28,15 +28,27 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
-1. What is the DOM?
+1.What is the DOM?
 
-2. What is an event?
+The DOM (document object model) is an object representation of the html elements of a webpage. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects. Can see and work with the dom by inspecting and colsole logging.
 
-3. What is an event listener?
+2.What is an event?
 
-4. Why would we convert a NodeList into an Array?
+Every user interaction with a site is an event: a click, moving the mouse, scrolling the page, pressing a key on the keyboard, these are all events on the page, and the browser can detect all of them. There are tons of different events the browser tracks. When an event happens on a page, it is known as a trigger.
 
-5. What is a component?
+3.What is an event listener?
+
+Now that we know what an event is and we know the browser is always tracking them, we need to be able to listen for specific events on specific elements. Did a user click that button? Did a users mouse hover over an element? Was there text entered into the input field? There are dozens of events an element can listen for. When one of those events happens on that element, we can do something about it. The tracking process and subsequent action taken is called an event listener. We put an event listener on an element and give it a callback. When that event is triggered on the element, the callback is run.
+element.addEventListener('click', callback);
+
+4.Why would we convert a NodeList into an Array?
+
+We would convert a NodeList into an Array so we can take full advantage of all those cool new ES6 array methods like .forEach, .map.
+
+5.What is a component?
+
+Components are the building block to modern application development. Being able to use HTML, CSS, and JS in a reusable way opens up new possibilities for web developers. One lego from the set, one piece of the pie, a small part of something bigger.
+
 
 ### Git Set up
 
