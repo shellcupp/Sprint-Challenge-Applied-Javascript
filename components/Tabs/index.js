@@ -6,35 +6,28 @@
 // under the .topics element.
 //
 //  The tab component should look like this:
+
 //    <div class="tab">topic here</div>
-const topics = document.querySelector('.topics');
-let tabTopics;
-axios.get('https://lambda-times-backend.herokuapp.com/topics')
-  .then(response => {
-      response.data.topics.forEach((topic)=> {
-        tabCreator(topic);
-      });
 
-      tabTopics = document.querySelectorAll('.tab');
-      console.log(tabTopics);
-
-      tabTopics.forEach((topic) => {
-        topic.addEventListener('click', () => {
-          console.log(topic.textContent);
-          topicOnly(topic.textContent);
-        });
-      });
+axios.get('https://lambda-times-backend.herokuapp.com/topics').then(response => {
+    const tabTopics = Object.values(response.data.topics)
+    tabTopics.forEach(topic => {
+        const topicTab = Tab(topic)
+        addTab.appendChild(topicTab);
+    })
 })
-  .catch(error => {console.log('Error! : ' + error)});
+.catch(err => {
+    console.log('error', err)
+})
 
+function Tab(index) {
+    const topics = document.createElement('div');
 
-  function tabCreator(data){
-      let tabDiv = document.createElement('div');
+    topics.classList.add('tab');
 
-      tabDiv.classList.add('tab');
+    topics.textContent = index;
 
-      tabDiv.textContent = data;
+    return topics;
+}
 
-      topics.appendChild(tabDiv);
-  }
-  //console.log(tabCreator)
+const addTab = document.querySelector('.topics')
